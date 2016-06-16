@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIColor {
-    static func color(red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
+    static func color(_ red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
         return UIColor(
             colorLiteralRed: Float(1.0) / Float(255.0) * Float(red),
             green: Float(1.0) / Float(255.0) * Float(green),
@@ -55,21 +55,21 @@ class ViewController: UIViewController, CircleMenuDelegate {
 
     // MARK: <CircleMenuDelegate>
 
-    func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         button.backgroundColor = items[atIndex].color
-        button.setImage(UIImage(imageLiteral: items[atIndex].icon), forState: .Normal)
+        button.setImage(UIImage(imageLiteralResourceName: items[atIndex].icon), for: UIControlState())
 
         // set highlited image
-        let highlightedImage  = UIImage(imageLiteral: items[atIndex].icon).imageWithRenderingMode(.AlwaysTemplate)
-        button.setImage(highlightedImage, forState: .Highlighted)
+        let highlightedImage  = UIImage(imageLiteralResourceName: items[atIndex].icon).withRenderingMode(.alwaysTemplate)
+        button.setImage(highlightedImage, for: .highlighted)
         button.tintColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.3)
     }
 
-    func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
         print("button will selected: \(atIndex)")
     }
 
-    func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
         print("button did selected: \(atIndex)")
     }
 }
