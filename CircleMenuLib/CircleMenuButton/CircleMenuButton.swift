@@ -186,13 +186,12 @@ internal extension CircleMenuButton {
             options: UIViewAnimationOptions.CurveEaseIn,
             animations: { () -> Void in
                 container.layoutIfNeeded()
-                self.transform = CGAffineTransformMakeScale(0.01, 0.01)
+                //                self.transform = CGAffineTransformMakeScale(0.01, 0.01)
             }, completion: { (success) -> Void in
-                self.alpha = 0
-                
-                if let _ = self.container {
-                    container.removeFromSuperview() // remove container
-                }
+                //                self.alpha = 0
+                //                if let _ = self.container {
+                //                    container.removeFromSuperview() // remove container
+                //                }
         })
     }
     
